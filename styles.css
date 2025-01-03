@@ -1,0 +1,40 @@
+.center {
+    text-align: center;
+}
+
+h1 {
+    padding-top: 8px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.text-input {
+    border: 2px solid black;
+    border-radius: 8px;
+    height: 32px;
+    width: 300px;
+}
+
+.submit-button {
+    height: 32px;
+    width: 75px;
+    margin: 12px;
+    border-radius: 8px;
+    border: 1px solid red;
+}
+
+.submit-button:hover {
+    transition: linear 100ms;
+    border-color: blue;
+    cursor: pointer;
+}
+
+.submit-button:active{
+    transition: none 0ms;
+    background-color: rgb(187, 187, 187);
+}
+
