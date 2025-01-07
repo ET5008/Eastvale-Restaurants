@@ -7,6 +7,12 @@
     text-align: center;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 h1 {
     padding-top: 8px;
     font: normal;
@@ -23,6 +29,16 @@ form {
 #restaurant-list {
     font-size: 28px;
     font-family: Helvetica, sans-serif;
+    text-align: left;
+    background-color: slategray;
+    padding: 2rem 4rem;
+    border-radius: 1rem;
+}
+
+.flex-center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .text-input {
@@ -33,11 +49,12 @@ form {
 }
 
 .submit-button {
-    height: 32px;
-    width: 75px;
+    height: 2rem;
+    width: 4rem;
     margin: 12px;
     border-radius: 8px;
     border: 1px solid red;
+    justify-self: center;
 }
 
 .submit-button:hover {
