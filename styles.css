@@ -1,6 +1,6 @@
-@font-face {
-    font-family: "Timeless Memories";
-    src: local("TimelessMemoriesRegular-2vvwo.otf");
+html {
+    font-family: Poppins;
+    background-color: #e3dac9;
 }
 
 .center {
@@ -14,8 +14,6 @@ body {
 }
 
 h1 {
-    font: normal;
-    font-family: "Timeless Memories";
     font-size: 32px;
     margin: 12px;
     margin-bottom: 4px;
@@ -31,9 +29,10 @@ form {
     font-size: 28px;
     font-family: Helvetica, sans-serif;
     text-align: left;
-    background-color: slategray;
+    background-color: #ede6d6;
     padding: 2rem 4rem;
     border-radius: 1rem;
+    border: solid 1px;
 }
 
 .flex-center {
@@ -54,9 +53,11 @@ form {
     width: 9rem;
     font-size: 16px;
     border-radius: 8px;
-    border: 1px solid red;
     justify-self: center;
     margin-bottom: 12px;
+    border: none;
+    background-color: #87A96B;
+    color: black;
 }
 
 .delete-all-button {
@@ -64,9 +65,10 @@ form {
     width: 10rem;
     font-size: 16px;
     border-radius: 8px;
-    border: 1px solid red;
+    border: none;
     justify-self: center;
     margin-bottom: 12px;
+    background-color: #C60C30;
 }
 
 .submit-button:hover {
