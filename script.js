@@ -14,7 +14,8 @@ const referenceInDb = ref(database, "restaurants")
 
 let list = document.getElementById("restaurant-list")
 let restaurantInput = document.getElementById("restaurant-input")
-let inputButton = document.getElementById("submit-button")
+let submitButton = document.getElementById("submit-button")
+let deleteAll = document.getElementById("delete-all-button")
 
 onValue(referenceInDb, function(snapshot){
     if(snapshot.exists()){
@@ -36,9 +37,15 @@ function render(restaurants) {
     list.innerHTML = listOfRestaurants
 }
 
-inputButton.addEventListener("click", function(){
+submitButton.addEventListener("click", function(){
+    if(restaurantInput.value !== ""){
     push(referenceInDb, restaurantInput.value)
     console.log("test #1")
     restaurantInput.value = ""
+    }
 })
 
+deleteAll.addEventListener("click", function(){
+    remove(referenceInDb)
+    list.innerHTML = "Submit a new restuarant!"
+})

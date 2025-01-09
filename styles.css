@@ -14,10 +14,11 @@ body {
 }
 
 h1 {
-    padding-top: 8px;
     font: normal;
     font-family: "Timeless Memories";
     font-size: 32px;
+    margin: 12px;
+    margin-bottom: 4px;
 }
 
 form {
@@ -37,7 +38,7 @@ form {
 
 .flex-center {
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
@@ -49,12 +50,23 @@ form {
 }
 
 .submit-button {
-    height: 2rem;
-    width: 4rem;
-    margin: 12px;
+    height: 3rem;
+    width: 9rem;
+    font-size: 16px;
     border-radius: 8px;
     border: 1px solid red;
     justify-self: center;
+    margin-bottom: 12px;
+}
+
+.delete-all-button {
+    height: 3rem;
+    width: 10rem;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid red;
+    justify-self: center;
+    margin-bottom: 12px;
 }
 
 .submit-button:hover {
