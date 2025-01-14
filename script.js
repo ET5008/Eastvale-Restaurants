@@ -20,22 +20,52 @@ let deleteAll = document.getElementById("delete-all-button")
 onValue(referenceInDb, function(snapshot){
     if(snapshot.exists()){
         const snapshotValues = snapshot.val()
-        const restaurants = Object.values(snapshotValues)
+        const restaurants = Object.entries(snapshotValues)
         render(restaurants)
     }
 })
 
+function deleteItem(event){
+    const key = event.target.id;
+    console.log("Key:", key);
+    const itemRef = ref(database, `restaurants/${key}`);
+    console.log(list.children.length)
+    if(list.children.length==1){
+        list.innerHTML = ""
+    }
+
+    remove(itemRef).then(() => {
+        console.log(`Item with key ${key} removed`);
+    }).catch((error) => {
+        console.error("Error removing item:", error);
+    });
+    console.log(Object.values(itemRef))
+}
+
 function render(restaurants) {
     let listOfRestaurants = ""
+
     for(let i = 0; i < restaurants.length; i++){ //traverses through the snapshot values aka all the values in the database
+        const [key, value] = restaurants[i]
         listOfRestaurants += `
-        <p>
-            ${restaurants[i]} 
-        </p>
+        <div class="list-item">
+            <p>
+                ${value} 
+            </p>
+            <button class="singleRemove" id = "${key}">Remove</button>
+        </div>
         `
-    }
+        }
     list.innerHTML = listOfRestaurants
+
+    let buttons = document.getElementsByClassName("singleRemove")
+    for(let button of buttons) {
+        button.addEventListener("click", deleteItem)
+    }
 }
+
+
+
 
 submitButton.addEventListener("click", function(){
     if(restaurantInput.value !== ""){

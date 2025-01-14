@@ -73,7 +73,11 @@ form {
 
 .submit-button:hover {
     transition: linear 100ms;
-    border-color: blue;
+    cursor: pointer;
+}
+
+.delete-all-button:hover {
+    transition: linear 100ms;
     cursor: pointer;
 }
 
@@ -82,3 +86,8 @@ form {
     background-color: rgb(187, 187, 187);
 }
 
+.list-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
