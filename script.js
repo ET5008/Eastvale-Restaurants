@@ -27,9 +27,7 @@ onValue(referenceInDb, function(snapshot){
 
 function deleteItem(event){
     const key = event.target.id;
-    console.log("Key:", key);
     const itemRef = ref(database, `restaurants/${key}`);
-    console.log(list.children.length)
     if(list.children.length==1){
         list.innerHTML = ""
     }
@@ -48,24 +46,48 @@ function render(restaurants) {
     for(let i = 0; i < restaurants.length; i++){ //traverses through the snapshot values aka all the values in the database
         const [key, value] = restaurants[i]
         listOfRestaurants += `
-        <div class="list-item">
+        <div class="list-item item-${i}">
             <p>
                 ${value} 
             </p>
-            <button class="singleRemove" id = "${key}">Remove</button>
+            <button class="singleRemove ${i} hidden" id = "${key}">Remove</button>
         </div>
         `
         }
     list.innerHTML = listOfRestaurants
 
     let buttons = document.getElementsByClassName("singleRemove")
+    let buttonList = []
+    let i = 0
+    const itemList = document.getElementsByClassName("list-item")
+
     for(let button of buttons) {
         button.addEventListener("click", deleteItem)
+        console.log(button)
+        buttonList.push("button " + i)
+        i++
+        console.log(i)
+    }
+    console.log(buttonList)
+    for(let item of itemList) {
+        item.addEventListener("mouseover", function(event){
+            let classNumber = event.target.classList[1].substring(5)
+            let buttons = document.getElementsByClassName(classNumber)
+            buttons[0].classList.add("visible")
+        })
+        item.addEventListener("mouseout", function(event){
+            let classNumber = event.target.classList[1].substring(5)
+            let buttons = document.getElementsByClassName(classNumber)
+            buttons[0].classList.remove("visible")
+        })
     }
 }
 
-
-
+// function unhide(event){
+//     event.target.classList.add("visible")
+//     console.log(a)
+//     console.log("unhidden!")
+// }
 
 submitButton.addEventListener("click", function(){
     if(restaurantInput.value !== ""){
@@ -79,3 +101,5 @@ deleteAll.addEventListener("click", function(){
     remove(referenceInDb)
     list.innerHTML = "Submit a new restuarant!"
 })
+
+
