@@ -83,4 +83,11 @@ deleteAll.addEventListener("click", function(){
     list.innerHTML = "Submit a new restuarant!"
 })
 
+const input = document.getElementById("restaurant-input")
+input.addEventListener("keypress", function(event){
+    if (event.key === "Enter") {
+        event.preventDefault()
 
+        document.getElementById("submit-button").click()
+    }
+})
