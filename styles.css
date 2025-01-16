@@ -30,7 +30,7 @@ form {
     font-family: Helvetica, sans-serif;
     text-align: left;
     background-color: #ede6d6;
-    padding: 2rem 3rem;
+    padding: 2rem 1rem;
     border-radius: 1rem;
     border: solid 1px;
 }
@@ -90,6 +90,7 @@ form {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 16px 28px
 }
 
 .singleRemove {
@@ -101,8 +102,13 @@ form {
     background-color: #C60C30;
     color: white;
     visibility: hidden;
+    cursor: pointer;
 }
 
 .visible {
     visibility: visible !important;
+}
+
+.list-item:hover .singleRemove {
+    visibility: visible;
 }
